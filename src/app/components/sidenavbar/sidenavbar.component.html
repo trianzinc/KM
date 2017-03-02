@@ -1,0 +1,60 @@
+
+<div id="wrapper" [ngClass]="{active : isActive}">
+
+      <!-- Sidebar -->
+            <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+          <ul id="sidebar_menu" class="sidebar-nav">
+               <li class="sidebar-brand"><a id="menu-toggle">TRIANZ KM<span (click)="isActive = !isActive" id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+          </ul>
+          
+          <ul class="sidebar-nav" id="sidebar">
+
+              <li>
+                  <a data-toggle="collapse" data-target="#sub1">
+                      User
+                        <span class="fa fa-user glyphicon-link sub_icon glyphicon"></span>
+                  </a>
+                  <ul class="nav collapse" id="sub1">
+                      <li class="subnavs"><a routerLink="/profile" routerLinkActive="active" >Profile</a></li>
+                      
+                      <li class="subnavs"><a>Profile Details</a></li>
+                      
+                      <li class="subnavs"><a>Access</a></li>
+                  </ul>
+              </li>
+
+              <li>
+                  <a routerLink="/dashboard" routerLinkActive="active">
+                      Dashboard
+                        <span class="sub_icon glyphicon glyphicon-link fa fa-tachometer"></span>
+                  </a>
+              </li>
+
+              <li>
+                  <a routerLink="/portfolio" routerLinkActive="active">
+                      Portfolio
+                        <span class="sub_icon glyphicon glyphicon-link fa fa-folder"></span>
+                  </a>
+              </li>
+
+          </ul>
+      </div>
+</div>
+
+
+<!--
+ <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>   
+              <li><a href="#" data-toggle="collapse" data-target="#sub1">Link 4 (submenu)</a>
+                <ul class="nav collapse" id="sub1">
+                  <li><a href="#">Sub Link 1</a></li>
+                  <li><a href="#">Sub Link 2</a></li>
+                  <li><a href="#">Sub Link 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Link 5</a></li>   
+            </ul>-->
