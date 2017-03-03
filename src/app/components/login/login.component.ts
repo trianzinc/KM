@@ -25,6 +25,13 @@ export class LoginComponent {
         }
     }
     
+    serverLogin(){
+    
+    this._service.serverLogin().subscribe(res => {
+     console.log(res)
+    });
+    }
+    
     
     
     
