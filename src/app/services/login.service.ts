@@ -1,5 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+
+import { Http, Response }          from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
  
 export class User {
   constructor(
@@ -17,7 +22,7 @@ var users = [
 export class LogInService {
  
   constructor(
-    private _router: Router){}
+    private _router: Router,private http:Http){}
  
   logout() {
     localStorage.removeItem("user");
@@ -37,6 +42,12 @@ export class LogInService {
     }
     return false;
  
+  }
+  
+  
+  serverLogin(){
+    return this.http.get("http://localhost:3000/")
+    .map((res:Response) => res.json());
   }
  
    checkCredentials(){
