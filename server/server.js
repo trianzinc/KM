@@ -1,22 +1,41 @@
 //Get dependencies
 
 const express = require('express');
-const path = require('path');
 const http = require('http');
-const bodyParser = require('body-parser');
-
-//get api routes
-
 const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const api = require('./api.js')(app,mongoose);
+const path = require('path');
+
+const port = process.env.PORT || '3000';
+app.set('port', port);
+
+//create a HTTP server
+
+const server = http.createServer(app);
+
+// listen on provided port
+
+
+server.listen(port, () => console.log(`API`));
+
+
+//connect to mongo db
+mongoose.connect('localhost:27017');
+
+//define model
+
+var Todo = mongoose.model('Todo', {
+    text: String
+});
 
 //parser for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// get port from enviroment and store in express
-
-const port = process.env.PORT || '3000';
-app.set('port', port);
+app.use(morgan('dev'));
 
 // Add headers
 app.use(function (req, res, next) {
@@ -38,14 +57,19 @@ app.use(function (req, res, next) {
     next();
 });
 
-//create a HTTP server
-
-const server = http.createServer(app);
-
-// listen on provided port
+//get api routes
 
 app.get('/', function (req, res) {
   res.send('{"name":"pratik"}')
 })
 
-server.listen(port, () => console.log(`API`));
+
+
+//Todo.create({
+//            text : "test",
+//            done : false
+//        }, function(err, todo) {
+//            if (err)
+//                res.send(err);
+// });
+
