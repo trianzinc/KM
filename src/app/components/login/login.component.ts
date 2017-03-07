@@ -19,17 +19,18 @@ export class LoginComponent {
     constructor(
         private _service:LogInService) {}
  
-    login() {
+    login(user) {
         if(!this._service.login(this.user)){
             this.errorMsg = 'Failed to login';
         }
     }
     
-    serverLogin(){
+    serverLogin(user){
     
     this._service.serverLogin().subscribe(res => {
      console.log(res)
     });
+    
     }
     
     

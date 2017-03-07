@@ -57,12 +57,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-//get api routes
-
-app.get('/', function (req, res) {
-  res.send('{"name":"pratik"}')
-})
-
 
 
 //Todo.create({

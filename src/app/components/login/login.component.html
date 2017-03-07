@@ -1,3 +1,4 @@
+<!--
 <div class="col-md-6 col-md-offset-3 loginContainer">
     <h2>Login</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
@@ -20,7 +21,7 @@
         
         <div class="form-group">
             <div class="help-block">{{errorMsg}}</div>
-            <button [disabled]="loading" class="btn btn-primary" (click)="serverLogin()" 
+            <button [disabled]="loading" class="btn btn-primary" (click)="serverLogin(user)" 
                     class="btn btn-primary" 
                     type="submit" name="action">Login</button>
             
@@ -31,35 +32,77 @@
         </div>
         
     </form>
-</div>
+</div>-->
+ <div class="container loginContainer">
+           
+            <header>
+                <h1 class="prName">Knowledge Management</h1>
+				
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        
+                        <div id="login" class="animate form">
+                            <form  name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate autocomplete="on"> 
+                                <h1>Log in</h1> 
+                                <p> 
+                                    <label for="username" class="uname" > Your email or username </label>
+                                    <input id="email" [(ngModel)]="user.email" #username="ngModel" name="username" required="required" type="email" placeholder="myusername or mymail@mail.com" />  
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd validate"> Your password </label>
+                                    <input id="password" [(ngModel)]="user.password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
+                                </p>
+                                <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Keep me logged in</label>
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" (click)="serverLogin(user)" name="action"  value="Login" /> 
+                                    
+								</p>
+                                <p class="change_link">
+									Not a member yet ?
+									<a href="#toregister" class="to_register">Join us</a>
+								</p>
+                            </form>
+                        </div>
 
-
-
-<!--
- <div class="container" >
-            <div class="title">
-                Welcome
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input [(ngModel)]="user.email" id="email" 
-                            type="email" class="validate">
-                        <label for="email">Email</label>
+                        <div id="register" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                                <h1> Sign up </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" >Your username</label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail"  > Your email</label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" >Your password </label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" >Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="submit" value="Sign up"/> 
+								</p>
+                                <p class="change_link">  
+									Already a member ?
+									<a href="#tologin" class="to_register"> Go and log in </a>
+								</p>
+                            </form>
+                        </div>
+						
                     </div>
-                </div>
- 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input [(ngModel)]="user.password" id="password" 
-                            type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
- 
-                <span>{{errorMsg}}</span>
-                <button (click)="login()" 
-                    class="btn waves-effect waves-light" 
-                    type="submit" name="action">Login</button>
-            </div>
-        </div>-->
+                </div>  
+            </section>
+  
+        </div>
