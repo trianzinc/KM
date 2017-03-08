@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'portfolio',     component: PortfolioComponent  },
   { path: 'dashboard',     component: DashboardComponent  },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register' component: RegisterComponent }
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Routes = [
     DashboardComponent,
     LoginComponent,
     SidenavbarComponent,
-    TopnavbarComponent
+    TopnavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

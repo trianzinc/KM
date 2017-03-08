@@ -1,6 +1,3 @@
-// file for routes and api
-
-
 // exports routes
 module.exports = function(app,mongoose){
     
