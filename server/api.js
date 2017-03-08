@@ -154,8 +154,8 @@ app.use(function (req, res, next) {
     
     app.post('/register',function(req, res){
          // create a todo, information comes from AJAX request from Angular
-       
-        User.save({
+        console.log(req.body.username)
+        User.create({
             name : req.body.username,
             password : req.body.password
         }, function(err, user) {
