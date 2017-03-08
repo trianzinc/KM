@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LogInService, User} from '../../services/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -9,15 +10,13 @@ import {LogInService, User} from '../../services/login.service';
 })
 export class LoginComponent {
 
-    //model: any = {};
-    //loading = false;
-    //returnUrl: string;
+
     
     public user = new User('','');
     public errorMsg = '';
  
     constructor(
-        private _service:LogInService) {}
+        private _service:LogInService,private _router: Router) {}
  
     login(user) {
         if(!this._service.login(this.user)){
@@ -27,9 +26,14 @@ export class LoginComponent {
     
     serverLogin(user){
     
-    this._service.serverLogin().subscribe(res => {
-     console.log(res)
-    });
+        this._service.serverLogin(user).subscribe(res => {
+         if(res.status == 200){
+             this._router.navigate(['start']); 
+         }else{
+            this._router.navigate(['login']); 
+         }
+        
+        });
     
     }
     

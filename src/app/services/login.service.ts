@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import { URLSearchParams } from "@angular/http";
 
 import { Http, Response }          from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -11,6 +12,8 @@ export class User {
     public email: string,
     public password: string) { }
 }
+
+
  
 var users = [
   new User('admin@admin.com','adm9'),
@@ -30,29 +33,50 @@ export class LogInService {
   }
  
   login(user){
-    var authenticatedUser = users.find(u => u.email === user.email);
+    //var authenticatedUser = users.find(u => u.email === user.email);
     
-    if (authenticatedUser && authenticatedUser.password === user.password){
+   // if (authenticatedUser && authenticatedUser.password === user.password){
     
-      localStorage.setItem("user", authenticatedUser);
+     // localStorage.setItem("user", authenticatedUser);
       
-      this._router.navigate(['start']);  
+     // this._router.navigate(['start']);  
       
-      return true;
-    }
-    return false;
+     // return true;
+    //}
+   // return false;
  
   }
   
   
-  serverLogin(){
-    return this.http.get("http://localhost:3000/")
-    .map((res:Response) => res.json());
+  serverLogin(user){
+    
+    let data = new URLSearchParams();
+    data.append('username', user.email);
+    data.append('password', user.password)
+
+    return this.http.post("http://localhost:3000/login",data)
+        .map((res:Response) => res);
+        
   }
  
-   checkCredentials(){
-    if (localStorage.getItem("user") === null){
-        this._router.navigate(['login']);
-    }
+  checkCredentials(){
+  
+    return this.http.post("http://localhost:3000/auth","")
+        .map((res:Response) => res);
+  
   } 
+  
+  registerUser(user){
+  
+    let data = new URLSearchParams();
+    
+    data.append('username', user.username);
+    data.append('password', user.password);
+    data.append('email', user.email)
+
+    return this.http.post("http://localhost:3000/register",data)
+        .map((res:Response) => res);
+        
+  }
+  
 }

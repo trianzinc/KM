@@ -1,6 +1,6 @@
  <div class="container registerContainer">
      <header>
-        <h1 class="prName">Knowledge Management</h1>
+        <h1 class="prName"></h1>
             </header>
                 <section>				
                     <div id="container_demo" >
@@ -8,26 +8,27 @@
 
                             <div id="register" class="animate form">
 
-                                <form  action="mysuperscript.php" autocomplete="on"> 
+                                <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate autocomplete="on"> 
                                          <h1> Sign up </h1> 
                                             <p> 
-                                                <label for="usernamesignup" class="uname" >Your username</label>
-                                                        <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                                <label for="username" class="uname" >Your username</label>
+                                                        <input id="username" [(ngModel)]="user.username" #username="ngModel" name="username" required="required" type="text" placeholder="mysuperusername690" />
                                             </p>
                                             <p> 
-                                                <label for="emailsignup" class="youmail"  > Your email</label>
-                                                        <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                                <label for="email" class="youmail"  > Your email</label>
+                                                        <input id="email" name="email" required="required" type="email" placeholder="mysupermail@mail.com" [(ngModel)]="user.email"
+                                                               /> 
                                             </p>
                                             <p> 
-                                                  <label for="passwordsignup" class="youpasswd" >Your password </label>
-                                                         <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                                  <label for="password" class="youpasswd" >Your password </label>
+                                                         <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" [(ngModel)]="user.password"/>
                                             </p>
                                              <p>  
-                                                 <label for="passwordsignup_confirm" class="youpasswd" >Please confirm your password </label>
-                                                         <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                                 <label for="password_confirm" class="youpasswd" >Please confirm your password </label>
+                                                         <input id="password_confirm" name="password_confirm" required="required" type="password" placeholder="eg. X8df!90EO" [(ngModel)]="user.password_confirm" />
                                              </p>
                                              <p class="signin button"> 
-                                                        <input type="submit" value="Sign up"/> 
+                                                        <input type="submit" (click)="register(user)" value="Sign up"/> 
                                              </p>
 
                                             <p class="change_link">  

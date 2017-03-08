@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'portfolio',     component: PortfolioComponent  },
   { path: 'dashboard',     component: DashboardComponent  },
   { path: 'login', component: LoginComponent },
-  { path: 'register' component: RegisterComponent }
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
