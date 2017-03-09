@@ -48,6 +48,7 @@ app.use(function (req, res, next) {
                 res.send(err)
 
             res.json(users); // return all todos in JSON format
+            
         });
     });
     
@@ -114,16 +115,17 @@ app.use(function (req, res, next) {
                         
                         
                         
-                        loggedInUsers.create({name: username, password: password}, function(err, doc) {
-                                    // At this point the jobs collection is created.
-                        });
+//                        loggedInUsers.create({name: username, password: password}, function(err, doc) {
+//                                    // At this point the jobs collection is created.
+//                        });
+                        console.log(username);
                         
-                        res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                        //res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                         res.end();
 
                     }else{
                         
-                         res.writeHead(404, "ERROR", {'Content-Type': 'text/plain'});
+                        // res.writeHead(404, "ERROR", {'Content-Type': 'text/plain'});
                          res.end();
                     }
                }
@@ -135,26 +137,25 @@ app.use(function (req, res, next) {
     
     //api to check loggedin users
     
-    app.post('/auth',function(req, res){
-        
-        loggedInUsers.find(function(err, userlist){
-            
-            if(userlist.length){
-                res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
-                        res.end();
-                
-            }else{
-                 res.writeHead(535, "Auth failed", {'Content-Type': 'text/plain'});
-                         res.end();
-            }
-        })
-    });
+//    app.post('/auth',function(req, res){
+//        
+//        loggedInUsers.find(function(err, userlist){
+//            
+//            if(userlist.length){
+//                res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+//                        res.end();
+//                
+//            }else{
+//                 res.writeHead(535, "Auth failed", {'Content-Type': 'text/plain'});
+//                         res.end();
+//            }
+//        })
+//    });
     
      //api to check loggedin users
     
     app.post('/register',function(req, res){
          // create a todo, information comes from AJAX request from Angular
-        console.log(req.body.username)
         User.create({
             name : req.body.username,
             password : req.body.password
