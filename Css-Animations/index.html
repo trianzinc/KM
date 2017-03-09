@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" type="text/css" href="css/animation.css" />
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"> </script>
+<title>Css Animations</title>
+</head>
+
+<body>
+<div class="container">
+ <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+   <div class="heading-text">
+     <h1>Css Image Animations</h1>
+    </div><!--heading-text-->
+   </div><!--col-xs-12 col-sm-12 col-md-12 col-lg-12-->
+  </div><!--row-->
+ </div><!--container-->
+
+ <div class="container">
+  <div class="row">
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <h2>1 - One image to another, on hover</h2>
+    <div id="cf">
+     <img class="bottom" src="images/windows.jpg" />
+     <img class="top" src="images/Turtle.jpg" />
+   </div><!--cf-->
+
+   <h2>2 - One image to another, when a button is pressed </h2>
+
+   <div id="cf2" class="shadow">
+     <img class="bottom" src="images/Turtle.jpg" />
+     <img class="top" src="images/analytic.jpg" />
+   </div><!--cf2-->
+   <p id="cf_onclick">Click me to toggle</p>
+
+   <h2>3 - One image to another with a timer CSS animations</h2>
+
+   <div id="cf3" class="shadow">
+    <img class="bottom" src="images/windows.jpg" />
+     <img class="top" src="images/Birdman.jpg" />
+   </div><!--cf3-->
+   <p style="text-align: center; margin-top: 15px;">Each image is visible for 9 seconds before fading to the other one.</p>
+
+   <h2>4 - Multiple images with a timer CSS animations</h2>
+
+   <div id="cf4" class="shadow">
+    <img class="bottom" src="images/windows.jpg" />
+    <img class="top" src="images/Turtle.jpg" />
+    <img class="top" src="images/Birdman.jpg" />
+   </div><!--cf3-->
+   <p style="text-align: center; margin-top: 15px;">Staggering the animations can result in a multiple image fader.</p>
+
+   <h2>5 - Images zoom in and out.</h2>
+
+   <div class="hover" id="cf5">
+     <img class="bottom" src="images/windows.jpg" />
+    <img class="top" src="images/Turtle.jpg" />
+  </div>
+  <p style="text-align: center; margin-top: 15px;">Hover on the image</p>
+
+  <h2>6 - Images rotation.</h2>
+
+  <div class="hover" id="cf6">
+    <img class="bottom" src="images/windows.jpg" />
+    <img class="top" src="images/Turtle.jpg" />
+  </div>
+  <p style="text-align: center; margin-top: 15px;">Hover on the image</p>
+
+  <h2>7 -Fading between multiple images on click</h2>
+
+   <div id="cf7" class="shadow abc">
+   <img class="opaque" src="images/windows.jpg" />
+   <img src="images/Turtle.jpg" />
+   <img src="images/Birdman.jpg" />
+   </div>
+
+  <p id="cf7_controls">
+  <span class="selected">Image 1</span>
+  <span>Image 2</span>
+  <span>Image 3</span>
+  </p> 
+
+  <h2> 8 - Flipping a simple image to a div (transitions and 3d transforms)</h2>
+
+  <div id="f1_container">
+  <div id="f1_card" class="shadow">
+  <div class="front face">
+    <img src="images/Birdman.jpg"/>
+  </div>
+  <div class="back face center">
+    <p>This is nice for exposing more information about an image.</p>
+    <p>Any content can go here.</p>
+  </div>
+ </div>
+ </div>
+
+   </div><!--col-xs-12 col-sm-12 col-md-12 col-lg-12-->
+  </div><!--row-->
+ </div><!--container-->
+
+ <script type="text/javascript">
+ //script for toggle image
+
+ $(document).ready(function() {
+  $("#cf_onclick").click(function() {
+  $("#cf2 img.top").toggleClass("transparent");
+   });
+   });
+ </script>
+
+ <script type="text/javascript">
+ //script for fading between multiple images
+ 	$(document).ready(function() {
+  $("#cf7_controls").on('click', 'span', function() {
+    $("#cf7 img").removeClass("opaque");
+
+    var newImage = $(this).index();
+
+    $("#cf7 img").eq(newImage).addClass("opaque");
+
+    $("#cf7_controls span").removeClass("selected");
+    $(this).addClass("selected");
+  });
+});
+ </script>
+
+ </body>
+
+</html> 
