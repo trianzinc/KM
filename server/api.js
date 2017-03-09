@@ -120,14 +120,15 @@ app.use(function (req, res, next) {
 //                        });
                         console.log(username);
                         
-                        //res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                        res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                         res.end();
-
-                    }else{
-                        
-                        // res.writeHead(404, "ERROR", {'Content-Type': 'text/plain'});
-                         res.end();
+                        break;
                     }
+//                    else{
+//                        console.log('failed')
+//                        res.writeHead(404, "ERROR", {'Content-Type': 'text/plain'});
+//                         res.end();
+//                    }
                }
                 
              }
