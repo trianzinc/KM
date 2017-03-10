@@ -13,15 +13,15 @@ export class TopnavbarComponent {
  
     ngOnInit(){
     
-       //this._service.checkCredentials().subscribe(res => {
-       
-        // if(res.status == 200){
-         //    this._router.navigate(['start']); 
-         //}else{
-          //  this._router.navigate(['login']); 
-        // }
+       this._service.checkCredentials().subscribe(res => {
+       console.log(res)
+         if(res.status == 200){
+             this._router.navigate(['start']); 
+         }else{
+            this._router.navigate(['login']); 
+         }
         
-        //});
+        });
     }
  
     logout() {

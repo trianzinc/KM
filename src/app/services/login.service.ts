@@ -28,8 +28,16 @@ export class LogInService {
     private _router: Router,private http:Http){}
  
   logout() {
-    localStorage.removeItem("user");
-    this._router.navigate(['login']);
+  console.log('delete');
+  
+     return this.http.delete("http://localhost:3000/logout",{})
+        .subscribe((res:Response) => res);
+        
+        
+
+  
+    //localStorage.removeItem("user");
+   // this._router.navigate(['login']);
   }
  
   login(user){
