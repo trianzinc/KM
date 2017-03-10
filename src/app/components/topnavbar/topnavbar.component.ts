@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import { Component, OnInit }      from '@angular/core';
 import {LogInService, User} from '../../services/login.service';
 import {Router} from '@angular/router';
+
+
+
 
 @Component({
   selector: 'topnavbar',
@@ -16,7 +20,7 @@ export class TopnavbarComponent {
        this._service.checkCredentials().subscribe(res => {
        console.log(res)
          if(res.status == 200){
-             this._router.navigate(['start']); 
+             
          }else{
             this._router.navigate(['login']); 
          }
@@ -25,6 +29,11 @@ export class TopnavbarComponent {
     }
  
     logout() {
-        this._service.logout();
+        this._service.logout().subscribe(res=>{
+        console.log(res)
+         if(res.status == 200){
+             this._router.navigate(['login']); 
+         }
+        });
     }
 }

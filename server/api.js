@@ -160,9 +160,9 @@ app.use(function (req, res, next) {
                 
             }else{
                 console.log('user not found');
-                 res.writeHead(535, "Auth failed", {'Content-Type': 'text/plain'});
+                 res.writeHead(205, "Auth failed", {'Content-Type': 'text/plain'});
                          res.end();
-            }
+             }
         })
     });
     

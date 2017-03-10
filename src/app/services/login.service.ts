@@ -31,7 +31,7 @@ export class LogInService {
   console.log('delete');
   
      return this.http.delete("http://localhost:3000/logout",{})
-        .subscribe((res:Response) => res);
+        .map((res:Response) => res);
         
         
 
@@ -70,7 +70,10 @@ export class LogInService {
   checkCredentials(){
   
     return this.http.post("http://localhost:3000/auth","")
-        .map((res:Response) => res);
+        .map((res:Response) => {
+        console.log("From service"+res);
+        return res;
+        });
   
   } 
   
