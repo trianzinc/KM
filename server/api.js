@@ -92,67 +92,79 @@ app.use(function (req, res, next) {
     });
     
     
-    // login api
-    app.post('/login', function(req, res) {
-
-        console.log(req.body);
-        
-        var username = req.body.username;
-        var password = req.body.password;
-        
-        User.find(function(err, users){
-            
+    // delete a logged in user
+    app.delete('/logout', function(req, res) {
+        loggedInUsers.remove(function(err, user) {
             if (err){
-                
-                 res.send(err)
-                 
-            } else {
-                
-            
-            for(var i=0;i<users.length;i++){
-                
-                    if(users[i].name === username && users[i].password === password){
-                        
-                        
-                        
-//                        loggedInUsers.create({name: username, password: password}, function(err, doc) {
-//                                    // At this point the jobs collection is created.
-//                        });
-                        console.log(username);
-                        
-                        res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                  res.send(err);
+            }else{
+                 res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                         res.end();
-                        break;
-                    }
-//                    else{
-//                        console.log('failed')
-//                        res.writeHead(404, "ERROR", {'Content-Type': 'text/plain'});
-//                         res.end();
-//                    }
-               }
-                
-             }
-         });
-
+            }
+              
+        });
+    });
+    
+        // login api
+    app.post('/login', function(req, res) {
+        
+         var username = req.body.username;
+         var password = req.body.password;
+        
+        User.findOne({
+            "name" : new RegExp('^'+username+'$', "i"),
+            "password": new RegExp('^'+password+'$', "i")
+        }, function(err, user) {
+            if (err){
+                  res.send(err);
+            }else{
+                console.log(user)
+                if(user){
+                    
+                    // update logged in user
+                    loggedInUsers.create({
+                                            name : username,
+                                            password : password
+                                        }, function(err, user) {
+                                            if (err)
+                                                res.send(err);
+                                        });
+                    
+                    
+                   res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                   res.end(); 
+                }else{
+                   res.writeHead(404, "USER NOT FOUND", {'Content-Type': 'text/plain'});
+                   res.end();  
+                }
+                 
+            }
+              
+        });
     });
     
     
-    //api to check loggedin users
+
     
-//    app.post('/auth',function(req, res){
-//        
-//        loggedInUsers.find(function(err, userlist){
-//            
-//            if(userlist.length){
-//                res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
-//                        res.end();
-//                
-//            }else{
-//                 res.writeHead(535, "Auth failed", {'Content-Type': 'text/plain'});
-//                         res.end();
-//            }
-//        })
-//    });
+   // api to check loggedin users
+    
+    app.post('/auth',function(req, res){
+        
+        loggedInUsers.find(function(err, userlist){
+            
+            if(userlist.length){
+                console.log('user found');
+                res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                        res.end();
+                
+                
+            }else{
+                console.log('user not found');
+                 res.writeHead(205, "Auth failed", {'Content-Type': 'text/plain'});
+                         res.end();
+             }
+        })
+    });
     
      //api to check loggedin users
     
