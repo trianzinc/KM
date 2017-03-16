@@ -174,15 +174,23 @@ app.use(function (req, res, next) {
             name : req.body.username,
             password : req.body.password
         }, function(err, user) {
-            if (err)
-                res.send(err);
-
-            // get and return all the todos after you create another
-            User.find(function(err, users) {
-                if (err)
-                    res.send(err)
-                res.json(users);
-            });
+            if (err){
+                console.log('error registering');
+               res.writeHead(205, "failed to register", {'Content-Type': 'text/plain'});
+                         res.end();
+            } else {
+                
+                console.log('user registered');
+                res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+                        res.end();
+                 // get and return all the todos after you create another
+//                User.find(function(err, users) {
+//                    if (err)
+//                        res.send(err)
+//                    res.json(users);
+//                });
+            }
+          
         });
         
     });

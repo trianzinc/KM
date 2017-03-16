@@ -4502,3 +4502,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     width: 500px;
     position: relative;
 }
+
+.messageHolder{
+    width: 225px;
+    height: 29px;
+    background: #5ec596;
+    margin: 0px auto;
+       padding: 4px 0 0 0;
+    border: 1px solid black;
+    border-radius: 4px;
+    position: relative;
+        text-align: center;
+}
