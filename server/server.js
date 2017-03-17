@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const api = require('./api.js')(app,mongoose,bodyParser);
 const path = require('path');
 
-const port = process.env.PORT || '3002';
+const port = process.env.PORT || '3000';
 app.set('port', port);
 
 //create a HTTP server
@@ -23,7 +23,7 @@ server.listen(port, () => console.log(`API`));
 
 
 //connect to mongo db
-mongoose.connect('172.16.1.167:27017');
+mongoose.connect('localhost:27017');
 
 //define model
 

@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://172.16.1.167:4200');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -98,6 +98,7 @@ app.use(function (req, res, next) {
             if (err){
                   res.send(err);
             }else{
+                console.log('user removed')
                  res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                         res.end();
             }

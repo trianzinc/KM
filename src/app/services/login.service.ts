@@ -30,7 +30,7 @@ export class LogInService {
   logout() {
   console.log('delete');
   
-     return this.http.delete("http://172.16.1.167:3002/logout",{})
+     return this.http.delete("http://localhost:3000/logout",{})
         .map((res:Response) => res);
         
         
@@ -62,14 +62,14 @@ export class LogInService {
     data.append('username', user.email);
     data.append('password', user.password)
 
-    return this.http.post("http://172.16.1.167:3002/login",data)
+    return this.http.post("http://localhost:3000/login",data)
         .map((res:Response) => res);
         
   }
  
   checkCredentials(){
   
-    return this.http.post("http://172.16.1.167:3002/auth","")
+    return this.http.post("http://localhost:3000/auth","")
         .map((res:Response) => {
         console.log("From service"+res);
         return res;
@@ -85,7 +85,7 @@ export class LogInService {
     data.append('password', user.password);
     data.append('email', user.email)
 
-    return this.http.post("http://172.16.1.167:3002/register",data)
+    return this.http.post("http://localhost:3000/register",data)
         .map((res:Response) => res);
         
   }
