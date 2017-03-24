@@ -1,0 +1,95 @@
+img {
+  vertical-align: middle;
+  max-height: 360px;
+  width: 100%;
+}
+
+/* Typography
+------------------------------------- */
+h1,h2,h3,h4,h5 {
+  font-family: 'Unica One', cursive;
+  font-weight: bold;
+}
+
+/* All Section styles
+------------------------------------- */
+.section-title {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title, #plan .section-title {
+  border-color: #ffffff;
+  padding-top: 40px;
+}
+
+.heading{
+	color:#FFFFFF;
+	font-size:36px;
+}
+
+#team h4 {
+  color: #092756;
+  font-weight: bold;
+  text-align: center;
+}
+#team h3 {
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#team .team-wrapper .team-des {
+  cursor: pointer;
+  position: relative;
+  bottom: 0;
+  transition: all 0.4s linear;
+  padding: 62px 22px 62px 22px;
+  background: #ffffff;
+}
+
+#team .team-wrapper:hover .team-des {
+  background: #ffffff;
+  bottom: 100px;
+}
+
+#team .team-wrapper .social-icon li a {
+  font-size: 16px;
+}
+
+#team {
+        margin-top: -86px;
+}
+
+
+.social-icon {
+  padding: 0;
+  margin: 0;
+}
+
+.social-icon li {
+  list-style: none;
+  display: inline-block;
+  padding: 6px;
+}
+
+.social-icon li a {
+  color: #000000;
+  font-size: 20px;
+  font-weight: 300;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  margin: 0 8px 14px 8px;
+}
+
+.social-icon li a:hover {
+  background: #000000;
+  color: #ffffff;
+}

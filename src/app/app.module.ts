@@ -15,6 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GallaryComponent } from './components/gallary/gallary.component';
+import { TeamComponent } from './components/team/team.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -36,7 +38,9 @@ const routes: Routes = [
     LoginComponent,
     SidenavbarComponent,
     TopnavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    GallaryComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,

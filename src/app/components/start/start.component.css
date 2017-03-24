@@ -1,0 +1,19 @@
+img.carousel-img {
+    width: 100%;
+}
+.contentbox{
+    padding: 12px;
+}
+.contentbox h1{
+        font-size: 1.5em;
+    font-family: 'Lato';
+    font-weight: 900;
+    text-transform: none;
+    color: #595959;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+        background: rgba(122, 166, 201, 0.33);
+    line-height: 40px;
+   
+    margin-top: 3px;
+}
